@@ -1,9 +1,9 @@
 <?php 
 ob_start();
-$db = "cycleweb_cycle";
+$db = "cycleclinic";
 $host = "localhost";
-$user = "cycleweb_user";
-$pass = "UU7W](-0U,HT";
+$user = "asgssolution";
+$pass = "asgssolution";
 
 // Create connection
 $con = new mysqli($host, $user, $pass , $db);

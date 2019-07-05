@@ -1,0 +1,25 @@
+body {
+    background: #fbc531;
+}
+
+.container {
+    width: 50%;
+    margin: 10% auto;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 0px 0px 30px grey;
+}
+
+.container h2 {
+    color: #16a085;
+}
+
+.container #loginBtn {
+    background: #ff9f1a;
+    color: #fff;
+}
+
+.container #btn {
+    margin-left: 35%;
+}
