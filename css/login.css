@@ -21,5 +21,15 @@ body {
 }
 
 .container #btn {
-    margin-left: 35%;
+    margin: auto;
+}
+
+.container label {
+    font-size: 17px;
+    text-decoration: underline;
+}
+
+.container #error {
+    color: #f00;
+    text-align: center;
 }

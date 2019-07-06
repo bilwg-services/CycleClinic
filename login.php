@@ -1,7 +1,7 @@
 <?php
 
     include_once "api/connection.php";
-    include_once "layout/base.php";
+   
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
                 <div class="col-md-8"> 
                     <center>   
                     <h2><u>Cycle  Clinic Admin Panel</u></h2>
-                    <p>Login To Continue...</p>
+                    <p>Manage Your App On Easy Go</p>
                     </center>
                 </div>
             </div>
@@ -36,10 +36,11 @@
         
         <br>
         <br>
-        <form action="" method="POST" >
+        <form action="login.php" method="POST" >
+            <p id="error"></p>
             <div class="row">
                 <div class="col-md-3">
-                    <label for="email">Your Email ID</label>
+                    <label for="email">Your Email ID:</label>
                 </div>
                 <div class="col-md-9">    
                     <input type="email" name="email" class="form-control" placeholder="Enter Your Email" id="email" required>
@@ -48,7 +49,7 @@
             <br>
             <div class="row">
                 <div class="col-md-3">
-                    <label for="email">Your Passowrd</label>
+                    <label for="email">Your Password:</label>
                 </div>
                 <div class="col-md-9">    
                     <input type="password" name="pass" class="form-control" placeholder="Enter Your Password" id="pass" required>
@@ -56,8 +57,8 @@
             </div>
             <br><br>
             <div id="btn" class="row ">
-                <div class="col-md-6 ">
-                    <div id="loginBtn" class="btn btn-lg ">Secure Login</div>
+                <div class="col-md-6 col-xs-12">
+                    <input type="submit"  name="submit" id="loginBtn" class="btn btn-lg " value="Secure Login" />
                 </div>
             </div>
 
@@ -66,3 +67,38 @@
     </div>
 </body>
 </html>
+
+<?php 
+
+if(isset($_POST['submit']))
+{
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+    $sql = "SELECT * FROM `admin` WHERE `email` = '$email' AND `password` = '$pass' ";
+    $run = mysqli_query($con, $sql);
+        if(mysqli_num_rows($run) != 0)
+        {
+            $row = mysqli_fetch_array($run);
+                #ToDo: Login Sucessfully 
+
+
+                setcookie("login", "1", time() + (86400 * 30), "/");
+		        setcookie("email", $email, time() + (86400 * 30), "/");
+		        setcookie("name", $row[1], time() + (86400 * 30), "/");
+		        setcookie("password", $password, time() + (86400 * 30), "/");
+		        header('Location: index.php');
+        
+        }
+        else
+        {
+            #ToDo: Wrong Password
+            echo "
+            <script>
+            document.getElementById('error').innerHTML = 'Invalid Email or Password';
+            </script>
+            ";
+        }
+}
+
+?>
