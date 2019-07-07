@@ -39,6 +39,11 @@
             font-size: 24px;
         }
         
+        #SideBar #element a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
         #SideBar #element #name {
             padding-left: 20px;
         }

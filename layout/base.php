@@ -26,24 +26,34 @@ function SideBar()
    <div id='SideBar'>
     <hr>
         <div id='element'>
-            <i class='fa fa-tachometer'></i>
-            <span id='name'>Dashboard</span>
+            <a href='index.php'>
+                <i class='fa fa-tachometer'></i>
+                <span id='name'>Dashboard</span>
+            </a>
         </div>
         <div id='element'>
-            <i class='fa fa-user'></i>
-            <span id='name'>Users</span>
+            <a href='user.php'>
+                <i class='fa fa-user'></i>
+                <span id='name'>Users</span>
+            </a>
         </div>
         <div id='element'>
-            <i class='fa fa-shopping-cart'></i>
-            <span id='name'>Orders</span>
+            <a href='order.php'>
+                <i class='fa fa-shopping-cart'></i>
+                <span id='name'>Orders</span>
+            </a>
         </div>
         <div id='element'>
-            <i class='fa fa-phone'></i>
-            <span id='name'>Contact Us</span>
+            <a href='contact.php'>
+                <i class='fa fa-phone'></i>
+                <span id='name'>Contact Us</span>
+            </a>
         </div>
         <div id='element'>
-            <i class='fa fa-bell'></i>
-            <span id='name'>Notification</span>
+            <a href='notification.php'>
+                <i class='fa fa-bell'></i>
+                <span id='name'>Notification</span>
+            </a>
         </div>
         
     </div>
