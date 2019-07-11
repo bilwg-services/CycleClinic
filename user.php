@@ -120,7 +120,7 @@ if ($get_pagenation < 0) {
                                 <td>$row[2]</td>
                                 <td>$row[3]</td>
                                 <td>$row[4]</td>
-                                <td><div class='btn btn-info'>Edit</div></td>
+                                <td><a href='updateuser.php?id=$row[0]'><div class='btn btn-info'>Edit</div></a></td>
                                 
                                 </tr>
                                 ";
