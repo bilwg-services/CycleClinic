@@ -9,7 +9,7 @@
 	$address = $_POST['address'];
 	$phone = $_POST['phone'];
 	
-	$sql = "INSERT INTO `user`(`id`, `name`, `email`, `address`, `phoneNumber`) VALUES ('$id','$name','$email','$address','$phone')";
+	$sql = "INSERT INTO `user`(`id`, `name`, `email`, `address`, `phoneNumber`,`status`) VALUES ('$id','$name','$email','$address','$phone','0')";
 	$result = mysqli_query($con, $sql);
 	
 	if($result == true)

@@ -16,7 +16,8 @@ if(mysqli_num_rows($result)>0)
 		'name'=>$row[1],
 		'email'=>$row[2],
 		'address'=>$row[3],
-		'phoneNumber'=>$row[4]
+		'phoneNumber'=>$row[4],
+		'status'=>$row[5]
 		];
 
 		echo json_encode($temp);

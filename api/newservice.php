@@ -16,8 +16,8 @@
     $intresedNewBike = $_POST['intresedNewBike'];
     
 	
-	$sql = "INSERT INTO `service`(`uid`, `name`, `phone`, `type`, `service`, `address`, `date`, `scratches`, `addons`, `status`, `intresedlnsurence`, `intresedNewBike`) 
-    VALUES ('$uid','$name','$phone','$type','$service','$address','$date','$scratches','$addons','$status','$intresedInsurence','$intresedNewBike')";
+	$sql = "INSERT INTO `service`(`uid`, `name`, `phone`, `type`, `service`, `address`, `date`, `scratches`, `addons`, `status`, `intresedlnsurence`, `intresedNewBike`,`sign`) 
+    VALUES ('$uid','$name','$phone','$type','$service','$address','$date','$scratches','$addons','$status','$intresedInsurence','$intresedNewBike','')";
 	$result = mysqli_query($con, $sql);
 	
 	if($result == true)

@@ -14,5 +14,6 @@ if ($con->connect_error) {
 } 
 //echo "Connected successfully";
 
+$base_url = "";
 
 ?>

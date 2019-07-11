@@ -69,6 +69,11 @@ if (isset($_GET['id']))
                     <input type="text" name="phone" class="form-control" placeholder="User Phone Number Here" value="'.$row[4].'" required />
                     <input type="hidden" name="id" value="'.$row[0].'" required />
                     <br>
+                    <select name="status" class="form-control">
+                        <option value="0">Active</option>
+                        <option value="1">Ban From App</option>
+                    </select>
+                    <br>
                     <input type="submit" name="submit" class="btn btn-success" value="Save Information" />
                 </form>
                         ';
@@ -93,9 +98,10 @@ if(isset($_POST['submit']))
 	$email = $_POST['email'];
 	$address = $_POST['address'];
     $phone = $_POST['phone'];
+    $status = $_POST['status'];
     echo "<script>console.log( 'Debug Objects: " . $id . "' );</script>";
 	
-	$sql = "UPDATE `user` SET `name`='$name',`email`='$email',`address`='$address',`phoneNumber`='$phone' WHERE `id`='$id' ";
+	$sql = "UPDATE `user` SET `name`='$name',`email`='$email',`address`='$address',`phoneNumber`='$phone',`status`='$status' WHERE `id`='$id' ";
 	$result = mysqli_query($con, $sql);
 	
 	if($result == true)

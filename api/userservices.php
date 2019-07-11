@@ -26,7 +26,8 @@ if(mysqli_num_rows($result)>0)
 		'addons'=>$addon,
 		'status'=>$row[10],
 		'intresedlnsurence'=>$row[11],
-		'intresedNewBike'=>$row[12]
+		'intresedNewBike'=>$row[12],
+		'sign'=>$row[13]
     	];
         
         array_push($return,$temp);
