@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jul 04, 2019 at 07:06 PM
--- Server version: 5.7.26-cll-lve
--- PHP Version: 7.2.7
+-- Host: 127.0.0.1
+-- Generation Time: Jul 11, 2019 at 10:03 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,31 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cycleweb_cycle`
+-- Database: `cycleclinic`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `name` varchar(1100) NOT NULL,
+  `email` varchar(1100) NOT NULL,
+  `password` varchar(1100) NOT NULL,
+  `type` varchar(1100) NOT NULL,
+  `addon` varchar(1100) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `name`, `email`, `password`, `type`, `addon`, `status`) VALUES
+(1, 'Admin 1', 'temp@admin.com', 'Admin', 'SuperAdmin', '[]', 1);
 
 -- --------------------------------------------------------
 
@@ -41,20 +64,19 @@ CREATE TABLE `service` (
   `addons` mediumtext NOT NULL,
   `status` int(11) NOT NULL,
   `intresedlnsurence` tinyint(1) NOT NULL,
-  `intresedNewBike` tinyint(1) NOT NULL
+  `intresedNewBike` tinyint(1) NOT NULL,
+  `sign` varchar(1100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `service`
 --
 
-INSERT INTO `service` (`id`, `uid`, `name`, `phone`, `type`, `service`, `address`, `date`, `scratches`, `addons`, `status`, `intresedlnsurence`, `intresedNewBike`) VALUES
-(4, '', '', '', '', '', '', '', 0, '', 0, 0, 0),
-(5, '', '', '', '', '', '', '', 0, '', 0, 0, 0),
-(6, 'jdqrI9zmG7MQHxLOJ93wAbb1mZy2', 'New customer', '+919328486441', 'Geared', 'Safety', 'B7 bhadralok bunglow\nborbhatha road\nankleshwar', 'Wed Jul 03 21:10:14 GMT+05:30 2019', 0, '[0, 2]', 0, 0, 0),
-(2, 'vNHRsKL7wpacjHoVXh2PXkqc2hF2', 'kartik', '+919328486441', 'Geared', 'Safety', 'b7 bhadralok bungalow\nborbhatha road\nAnkleshwar', 'Tue Jun 25 00:15:38 GMT+05:30 2019', 0, '[4, 2]', 0, 0, 0),
-(3, 'vNHRsKL7wpacjHoVXh2PXkqc2hF2', 'Margi patel', '+911234567890', 'Geared', 'Safety', 'somewhere\non\nearth', 'Tue Jun 25 03:25:37 GMT+05:30 2019', 0, '[]', 0, 0, 0),
-(7, 'cHYS6637zgQk1Muudlp8M1sRSKR2', 'police report', '9888499375', 'Geared', 'Safety', 'njkklooooo\nljhuiiiiiiioooh\nbbll', 'Mon Jul 01 20:25:57 GMT+05:30 2019', 0, '[3, 2, 1]', 0, 0, 0);
+INSERT INTO `service` (`id`, `uid`, `name`, `phone`, `type`, `service`, `address`, `date`, `scratches`, `addons`, `status`, `intresedlnsurence`, `intresedNewBike`, `sign`) VALUES
+(6, 'jdqrI9zmG7MQHxLOJ93wAbb1mZy2', 'New customer', '+919328486441', 'Geared', 'Safety', 'B7 bhadralok bunglow\nborbhatha road\nankleshwar', 'Wed Jul 03 21:10:14 GMT+05:30 2019', 0, '[0, 2]', 3, 0, 0, NULL),
+(2, 'vNHRsKL7wpacjHoVXh2PXkqc2hF2', 'kartik', '+919328486441', 'Geared', 'Safety', 'b7 bhadralok bungalow\nborbhatha road\nAnkleshwar', 'Tue Jun 25 00:15:38 GMT+05:30 2019', 0, '[4, 2]', 5, 0, 1, NULL),
+(3, 'vNHRsKL7wpacjHoVXh2PXkqc2hF2', 'Margi patel', '+911234567890', 'Geared', 'Safety', 'somewhere\non\nearth', 'Tue Jun 25 03:25:37 GMT+05:30 2019', 0, '[]', 1, 0, 0, NULL),
+(7, 'cHYS6637zgQk1Muudlp8M1sRSKR2', 'police report', '9888499375', 'Geared', 'Safety', 'njkklooooo\nljhuiiiiiiioooh\nbbll', 'Mon Jul 01 20:25:57 GMT+05:30 2019', 0, '[3, 2, 1]', 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -76,7 +98,10 @@ CREATE TABLE `tracking` (
 
 INSERT INTO `tracking` (`id`, `sid`, `did`, `latitude`, `longitude`) VALUES
 (1, 0, '', 0, 0),
-(2, 0, '', 0, 0);
+(2, 0, '', 0, 0),
+(3, 0, '', 0, 0),
+(4, 0, '', 0, 0),
+(5, 0, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -89,29 +114,35 @@ CREATE TABLE `user` (
   `name` varchar(1100) NOT NULL,
   `email` varchar(1100) NOT NULL,
   `address` varchar(1100) NOT NULL,
-  `phoneNumber` varchar(1100) NOT NULL
+  `phoneNumber` varchar(1100) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `address`, `phoneNumber`) VALUES
-('vNHRsKL7wpacjHoVXh2PXkqc2hF2', 'Kartik patel', 'spidy0471@gmail.com', 'b7 bhadralok bungalow borbhatha road Ankleshwar', '+916352122123'),
-('jndchd', 'div', 'greatdivyanhsu59@gmailc.om', 'bhimra', '9410335478'),
-('adnjnjds', 'hello', 'someone@gmsil.com', 'helloAddress', '9410337845'),
-('adnjnsfsfjds', 'hello', 'someone@gmsil.com', 'helloAddress', '9410337845'),
-('12cdwwf32', 'Kartik Patel', 'patelkartik1910@gmail.com', 'b7 bhadralok bunglow\nBorbhatha road\nAnkleshwar', ''),
-('as', 'hello', 'someone@gmsil.com', 'helloAddress', '9410337845'),
-('asgs', 'hello', 'someone@gmsil.com', 'helloAddress', '9410337845'),
-('12cdwwf31', 'Kartik Patel', 'patelkartik1910@gmail.com', 'b7 bhadralok bunglow\nBorbhatha road\nAnkleshwar', ''),
-('12cdwwf34', 'Kartik Patel', 'patelkartik1910@gmail.com', 'b7 bhadralok bunglow\nBorbhatha road\nAnkleshwar', '+916352122123'),
-('', '', '', '', ''),
-('jdqrI9zmG7MQHxLOJ93wAbb1mZy2', 'Kartik Patel', 'patelkartik1910@gmail.com', '', '');
+INSERT INTO `user` (`id`, `name`, `email`, `address`, `phoneNumber`, `status`) VALUES
+('vNHRsKL7wpacjHoVXh2PXkqc2hF2', 'Kartik Patel', 'spidy0471@gmail.com', 'b7 bhadralok bungalow borbhatha road Ankleshwar', '+916352122123', 1),
+('jndchd', 'div', 'greatdivyanhsu59@gmailc.om', 'bhimra', '9410335478', 0),
+('adnjnjds', 'hello', 'someone@gmsil.com', 'helloAddress', '9410337845', 0),
+('adnjnsfsfjds', ' Hii', 'someone@gmsil.com', 'helloAddress', '9410337845', 0),
+('12cdwwf32', 'Kartik Patel', 'patelkartik1910@gmail.com', 'b7 bhadralok bunglow\nBorbhatha road\nAnkleshwar', '', 0),
+('as', 'hello', 'someone@gmsil.com', 'helloAddress', '9410337845', 0),
+('asgs', 'hello', 'someone@gmsil.com', 'helloAddress', '9410337845', 0),
+('12cdwwf31', 'Kartik Patel', 'patelkartik1910@gmail.com', 'b7 bhadralok bunglow\nBorbhatha road\nAnkleshwar', '', 0),
+('12cdwwf34', 'Kartik Patel', 'patelkartik1910@gmail.com', 'b7 bhadralok bunglow\nBorbhatha road\nAnkleshwar', '+916352122123', 0),
+('jdqrI9zmG7MQHxLOJ93wAbb1mZy2', 'Kartik Patel', 'patelkartik1910@gmail.com', '', '', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service`
@@ -136,6 +167,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
@@ -145,7 +182,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `tracking`
 --
 ALTER TABLE `tracking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
