@@ -26,7 +26,9 @@ if(mysqli_num_rows($result)>0)
 		'status'=>$row[10],
 		'intresedlnsurence'=>$row[11],
 		'intresedNewBike'=>$row[12],
-		'sign'=>$row[13]
+		'sign'=>$row[13],
+		'driverid'=>$row[14],
+		'trackingid'=>$row[15]
     	];
         
         array_push($return,$temp);

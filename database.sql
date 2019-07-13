@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2019 at 10:03 PM
+-- Generation Time: Jul 13, 2019 at 06:33 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -65,18 +65,20 @@ CREATE TABLE `service` (
   `status` int(11) NOT NULL,
   `intresedlnsurence` tinyint(1) NOT NULL,
   `intresedNewBike` tinyint(1) NOT NULL,
-  `sign` varchar(1100) DEFAULT NULL
+  `sign` varchar(1100) DEFAULT NULL,
+  `driverId` varchar(1100) DEFAULT NULL,
+  `trackingId` varchar(1100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `service`
 --
 
-INSERT INTO `service` (`id`, `uid`, `name`, `phone`, `type`, `service`, `address`, `date`, `scratches`, `addons`, `status`, `intresedlnsurence`, `intresedNewBike`, `sign`) VALUES
-(6, 'jdqrI9zmG7MQHxLOJ93wAbb1mZy2', 'New customer', '+919328486441', 'Geared', 'Safety', 'B7 bhadralok bunglow\nborbhatha road\nankleshwar', 'Wed Jul 03 21:10:14 GMT+05:30 2019', 0, '[0, 2]', 3, 0, 0, NULL),
-(2, 'vNHRsKL7wpacjHoVXh2PXkqc2hF2', 'kartik', '+919328486441', 'Geared', 'Safety', 'b7 bhadralok bungalow\nborbhatha road\nAnkleshwar', 'Tue Jun 25 00:15:38 GMT+05:30 2019', 0, '[4, 2]', 5, 0, 1, NULL),
-(3, 'vNHRsKL7wpacjHoVXh2PXkqc2hF2', 'Margi patel', '+911234567890', 'Geared', 'Safety', 'somewhere\non\nearth', 'Tue Jun 25 03:25:37 GMT+05:30 2019', 0, '[]', 1, 0, 0, NULL),
-(7, 'cHYS6637zgQk1Muudlp8M1sRSKR2', 'police report', '9888499375', 'Geared', 'Safety', 'njkklooooo\nljhuiiiiiiioooh\nbbll', 'Mon Jul 01 20:25:57 GMT+05:30 2019', 0, '[3, 2, 1]', 0, 0, 0, NULL);
+INSERT INTO `service` (`id`, `uid`, `name`, `phone`, `type`, `service`, `address`, `date`, `scratches`, `addons`, `status`, `intresedlnsurence`, `intresedNewBike`, `sign`, `driverId`, `trackingId`) VALUES
+(6, 'jdqrI9zmG7MQHxLOJ93wAbb1mZy2', 'New customer', '+919328486441', 'Geared', 'Safety', 'B7 bhadralok bunglow\nborbhatha road\nankleshwar', 'Wed Jul 03 21:10:14 GMT+05:30 2019', 0, '[0, 2]', 3, 0, 0, NULL, NULL, NULL),
+(2, 'vNHRsKL7wpacjHoVXh2PXkqc2hF2', 'kartik', '+919328486441', 'Geared', 'Safety', 'b7 bhadralok bungalow\nborbhatha road\nAnkleshwar', 'Tue Jun 25 00:15:38 GMT+05:30 2019', 0, '[4, 2]', 5, 0, 1, NULL, NULL, NULL),
+(3, 'vNHRsKL7wpacjHoVXh2PXkqc2hF2', 'Margi patel', '+911234567890', 'Geared', 'Safety', 'somewhere\non\nearth', 'Tue Jun 25 03:25:37 GMT+05:30 2019', 0, '[]', 1, 0, 0, NULL, NULL, NULL),
+(7, 'cHYS6637zgQk1Muudlp8M1sRSKR2', 'police report', '9888499375', 'Geared', 'Safety', 'njkklooooo\nljhuiiiiiiioooh\nbbll', 'Mon Jul 01 20:25:57 GMT+05:30 2019', 0, '[3, 2, 1]', 0, 0, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
