@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2019 at 06:33 PM
+-- Generation Time: Jul 20, 2019 at 02:52 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -21,6 +21,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `cycleclinic`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `addons`
+--
+
+CREATE TABLE `addons` (
+  `id` int(11) NOT NULL,
+  `name` varchar(1100) NOT NULL,
+  `image` varchar(1100) NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -141,6 +154,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `address`, `phoneNumber`, `status`) V
 --
 
 --
+-- Indexes for table `addons`
+--
+ALTER TABLE `addons`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
@@ -167,6 +186,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `addons`
+--
+ALTER TABLE `addons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `admin`
