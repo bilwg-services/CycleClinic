@@ -12,7 +12,9 @@ function TopBar($username = "" , $useremail = "")
             </div>
             <div class='col-md-2 btn ' id='right'>
                 <span >$useremail</span>
-            </div>
+                &nbsp;&nbsp;&nbsp;
+                <a href='logout.php' style='font-size: 22px;'><i class='fa fa-sign-out' aria-hidden='true'></i></a>
+             </div> 
         </div>
         
         
