@@ -44,9 +44,9 @@ function SideBar()
             </a>
         </div>
         <div id='element'>
-            <a href='contact.php'>
-                <i class='fa fa-phone'></i>
-                <span id='name'>Contact Us</span>
+            <a href='product.php'>
+            <i class='fa fa-product-hunt'></i>
+                <span id='name'>Products</span>
             </a>
         </div>
         <div id='element'>

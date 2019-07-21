@@ -4,7 +4,7 @@
         }
         
         #TopBar {
-            background: #ff9f1a;
+            background: rgba(95, 117, 227, 1);
             padding: 5px;
             width: 100%;
             position: -webkit-sticky;
@@ -28,7 +28,7 @@
         }
         
         #SideBar {
-            background-image: linear-gradient( 0deg, rgba(255, 212, 4, 1) 5.8%, #ff9f1a 91.1%);
+            background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(95, 117, 227, 1) 0%, rgba(188, 167, 205, 1) 90%);
             padding: 20px;
             height: 89%;
         }
