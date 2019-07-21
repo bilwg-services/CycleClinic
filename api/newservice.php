@@ -13,11 +13,12 @@
     $addons = $_POST['addons'];
     $status = $_POST['status'];
     $intresedInsurence = $_POST['intresedInsurence'];
-    $intresedNewBike = $_POST['intresedNewBike'];
+	$intresedNewBike = $_POST['intresedNewBike'];
+	$paymentMode = $_POST['paymentMode'];
     
 	
-	$sql = "INSERT INTO `service`(`uid`, `name`, `phone`, `type`, `service`, `address`, `date`, `scratches`, `addons`, `status`, `intresedlnsurence`, `intresedNewBike`,`sign`) 
-    VALUES ('$uid','$name','$phone','$type','$service','$address','$date','$scratches','$addons','$status','$intresedInsurence','$intresedNewBike','')";
+	$sql = "INSERT INTO `service`(`uid`, `name`, `phone`, `type`, `service`, `address`, `date`, `scratches`, `addons`, `status`, `intresedlnsurence`, `intresedNewBike`,`sign`,`paymentMode`) 
+    VALUES ('$uid','$name','$phone','$type','$service','$address','$date','$scratches','$addons','$status','$intresedInsurence','$intresedNewBike','',$paymentMode)";
 	$result = mysqli_query($con, $sql);
 	
 	if($result == true)

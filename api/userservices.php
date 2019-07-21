@@ -14,20 +14,23 @@ if(mysqli_num_rows($result)>0)
 	{
 	    array_push($addon,$row[9]);
 		$temp = [
-		'id'=>$row[0],
-		'uid'=>$row[1],
-		'name'=>$row[2],
-		'phone'=>$row[3],
-		'type'=>$row[4],
-		'service'=>$row[5],
-		'address'=>$row[6],
-		'date'=>$row[7],
-		'scratches'=>$row[8],
-		'addons'=>$addon,
-		'status'=>$row[10],
-		'intresedlnsurence'=>$row[11],
-		'intresedNewBike'=>$row[12],
-		'sign'=>$row[13]
+			'id' => $row[0],
+			'uid' => $row[1],
+			'name' => $row[2],
+			'phone' => $row[3],
+			'type' => $row[4],
+			'service' => $row[5],
+			'address' => $row[6],
+			'date' => $row[7],
+			'scratches' => $row[8],
+			'addons' => $addon,
+			'status' => $row[10],
+			'intresedlnsurence' => $row[11],
+			'intresedNewBike' => $row[12],
+			'sign' => $row[13],
+			'driverid' => $row[14],
+			'trackingid' => $row[15],
+			'paymentMode' => $row[16]
     	];
         
         array_push($return,$temp);
@@ -45,4 +48,3 @@ else{
 
 
 echo json_encode($return);
- ?>
