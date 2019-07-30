@@ -9,7 +9,31 @@ $sql = "SELECT * FROM `service` WHERE `id` = '$id' ";
 $result = mysqli_query($con, $sql);
 if (mysqli_num_rows($result) > 0) {
 	while ($row = mysqli_fetch_array($result)) {
-		array_push($addon, $row[9]);
+		
+		$addonid = substr($row[9],1);
+		$addonid = strrev($addonid);
+		$addonid = substr($addonid,1);
+		$addonid = strrev($addonid);
+		//echo $addonid;
+		$item =   explode(",", $addonid);
+		foreach ($item as $value) {
+			
+		$sql2 = "SELECT * FROM `addons` where `id` = '$value'";
+		$result2 = mysqli_query($con, $sql2);
+			$row2 = mysqli_fetch_array($result2);
+				
+        	$addo = [
+            	'id' => (int) $row2[0],
+            	'name' => $row2[1],
+            	'image' => $row2[2],
+            	'price' => (int) $row2[3]
+        		];
+			
+			array_push($addon,$addo);
+			
+			
+		}
+
 		$temp = [
 			'id' => $row[0],
 			'uid' => $row[1],

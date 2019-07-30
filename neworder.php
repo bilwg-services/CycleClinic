@@ -54,6 +54,7 @@ if (isset($_GET['id'])) {
 
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_array($result)) {
+                            $addon = array($row[9]);
                             $scratches = ($row[8] == 1) ? "Yes" : "No";
                             $insurence = ($row[11] == 1) ? "Yes" : "No";
                             $newbike = ($row[12] == 1) ? "Yes" : "No";
@@ -74,7 +75,7 @@ if (isset($_GET['id'])) {
                                 <p><b>Service:</b> $row[5]</p>
                                 <p><b>Address:</b> $row[6]</p>
                                 <p><b>Date And Time: </b>$row[7]</p>
-                                <p><b>Addon:</b>$row[9]</p>
+                                <p><b>Addon:</b>$addon[0]</p>
                                 <p><b>Insurence:</b> $insurence</p>
                                 <p><b>New Bike:</b> $newbike</p>
                                 <h3>Status: $status</h3>
