@@ -23,6 +23,8 @@ if(mysqli_num_rows($result)>0)
 		$result2 = mysqli_query($con, $sql2);
 			$row2 = mysqli_fetch_array($result2);
 				
+        	if($row2[0]!= 0)
+			{
         	$addo = [
             	'id' => (int) $row2[0],
             	'name' => $row2[1],
@@ -31,7 +33,7 @@ if(mysqli_num_rows($result)>0)
         		];
 			
 			array_push($addon,$addo);
-			
+			}
 			
 		}
 		$temp = [
@@ -48,9 +50,11 @@ if(mysqli_num_rows($result)>0)
 		'status'=>$row[10],
 		'intresedlnsurence'=>$row[11],
 		'intresedNewBike'=>$row[12],
-		'sign'=>$row[13],
-		'driverid'=>$row[14],
-		'trackingid'=>$row[15]
+		'sign' => $row[13],
+		'driverid' => $row[14],
+		'trackingid' => $row[15],
+		'paymentMode' => $row[16],
+		'city' => $row[17]
     	];
         
         array_push($return,$temp);
@@ -68,4 +72,3 @@ else{
 
 
 echo json_encode($return);
- ?>

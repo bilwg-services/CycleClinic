@@ -18,30 +18,15 @@
     move_uploaded_file($file_tmp,"photo/".$newFileName.'.'.$ext);
     
     $filenameToStore=$newFileName.".".$ext;
-    $location = $base_url.'/api/photo/'.$filenameToStore;
-        
-    if($status != "")
-    {
-	$sql = "UPDATE `service` SET `sign`='$location' WHERE `id` = '$id' ";
-	$result = mysqli_query($con, $sql);
+	$location = $base_url.'/api/photo/'.$filenameToStore;
 	
-	if($result == true)
-     {
-         $temp = [
+
+	 $temp = [
 		'status'=> 200,
-		'error'=>'null'
+		'error'=>'null',
+		'url'=>$location
     	];
 	        	
-				echo json_encode($temp);
-	 }
-	else
-	{
-		  $temp = [
-		'status'=> 500,
-		'error'=>'Error Updating Status'
-    	];
-			
-			echo json_encode($temp);
-    }
-}
+	echo json_encode($temp);
+	
  ?>
