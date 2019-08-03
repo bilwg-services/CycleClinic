@@ -94,7 +94,7 @@ if ($get_pagenation < 0) {
                     </center>
                 </div>
                 <br>
-                <center><a href="addproduct.php"  class="btn btn-warning">Add Category</a></center>
+                <center><a href="addcategory.php"  class="btn btn-warning">Add Category</a></center>
                 <table class="table table-striped">
                     <thead>
                         <tr>
