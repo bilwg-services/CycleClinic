@@ -17,8 +17,8 @@
 	$paymentMode = $_POST['paymentMode'];
     
 	
-	$sql = "INSERT INTO `service`(`uid`, `name`, `phone`, `type`, `service`, `address`, `date`, `scratches`, `addons`, `status`, `intresedlnsurence`, `intresedNewBike`,`sign`,`paymentMode`) 
-    VALUES ('$uid','$name','$phone','$type','$service','$address','$date','$scratches','$addons','$status','$intresedInsurence','$intresedNewBike','',$paymentMode)";
+	$sql = "INSERT INTO `service`(`uid`, `name`, `phone`, `type`, `service`, `address`, `date`, `scratches`, `addons`, `status`, `intresedlnsurence`, `intresedNewBike`,`sign`,`paymentMode`, `city`) 
+    VALUES ('$uid','$name','$phone','$type','$service','$address','$date','$scratches','$addons','$status','$intresedInsurence','$intresedNewBike','$paymentMode', '')";
 	$result = mysqli_query($con, $sql);
 	
 	if($result == true)

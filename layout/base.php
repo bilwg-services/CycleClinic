@@ -52,6 +52,12 @@ function SideBar()
             </a>
         </div>
         <div id='element'>
+            <a href='category.php'>
+            <i class='fa fa-th-large'></i>
+                <span id='name'>Categories</span>
+            </a>
+        </div>
+        <div id='element'>
             <a href='notification.php'>
                 <i class='fa fa-bell'></i>
                 <span id='name'>Notification</span>
