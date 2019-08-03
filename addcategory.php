@@ -37,7 +37,7 @@ if (isset($_COOKIE['login']) != 1) {
         </div>
         <div class="col-md-9 col-xs-9">
             <div id="contetMain">
-                <a href="product.php">
+                <a href="category.php">
                     <div class="btn btn-danger">
                         Back To Previous Page
                     </div>

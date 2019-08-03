@@ -121,7 +121,7 @@ if ($get_pagenation < 0) {
                                 <td>$row[1]</td>
                                 <td><img src='$row[2]' width='120px'></td>
                                 
-                                <td><a href='editproduct.php?id=$row[0]' class='btn btn-info'>Edit</td> 
+                                <td><a href='editcategory.php?id=$row[0]' class='btn btn-info'>Edit</td> 
                                 </tr>
                                 ";
                             }
