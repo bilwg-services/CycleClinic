@@ -48,31 +48,57 @@ if (isset($_GET['id']))
                 <?php
                 if ($id == "")
                     echo "<center><p style='color: #f00;'>Connot Fatch User Id, Please Try Again.</p></center>";
-                else{
-                $sql = "SELECT * FROM `addons` WHERE `id` = '$id' ";
-                $result = mysqli_query($con, $sql);
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                        echo '
+                else {
+                    $sql = "SELECT * FROM `addons` WHERE `id` = '$id' ";
+                    $result = mysqli_query($con, $sql);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_array($result)) {
+                            $catid = $row[4];
+                            echo '
                         <br> <br>
                 <form action="editproduct.php" method="POST">
                     <label>Product Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Product Name" value="'.$row[1].'" required />
+                    <input type="text" name="name" class="form-control" placeholder="Product Name" value="' . $row[1] . '" required />
                     <br>
                     <label>Product Cost</label>
-                    <input type="text" name="price" class="form-control" placeholder="Product Cost" value="'.$row[3].'" required />
+                    <input type="text" name="price" class="form-control" placeholder="Product Cost" value="' . $row[3] . '" required />
                     <br>
-                    <input type="hidden" name="id" value="'.$id.'" />
+                    ';
+                            $sql2 = "SELECT * FROM `category` WHERE `id` = '$catid' ";
+                            $result2 = mysqli_query($con, $sql2);
+                            $row2 = mysqli_fetch_array($result2);
+                            $category = $row2[1];
+                            echo "<label>Product Category - $category</label>";
+
+                            echo '<select name="category" class="form-control">';
+
+
+
+                            $sql1 = "SELECT * FROM `category` ";
+                            $result1 = mysqli_query($con, $sql1);
+
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row1 = mysqli_fetch_array($result1)) {
+                                    echo "<option value='$row1[0]'>$row1[1]</option>";
+                                }
+                            }
+
+
+
+
+                            echo '</select>
+                    <br>
+                    <input type="hidden" name="id" value="' . $id . '" />
                             
                     <input type="submit" name="submit" class="btn btn-success" value="Save Information" />
                     <input type="submit" name="delete" class="btn btn-danger" value="Delete Product" />
                 </form>
                         ';
+                        }
                     }
                 }
-            }
                 ?>
-                
+
             </div>
         </div>
     </div>
@@ -82,38 +108,31 @@ if (isset($_GET['id']))
 </html>
 
 <?php
-if(isset($_POST['submit']))
-{
+if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
-	$price = $_POST['price'];
+    $price = $_POST['price'];
+    $category = $_POST['category'];
 
-   	$sql = "UPDATE `addons` SET `name`='$name',`price`='$price' WHERE `id`='$id' ";
-	$result = mysqli_query($con, $sql);
-	
-	if($result == true)
-     {
-     header('Location: product.php');
-     }
-     else{
-     header('Location: product.php');
-     }
+    $sql = "UPDATE `addons` SET `name`='$name',`price`='$price',`catid` = '$category' WHERE `id`='$id' ";
+    $result = mysqli_query($con, $sql);
 
-}
-elseif(isset($_POST['delete']))
-{
+    if ($result == true) {
+        header('Location: product.php');
+    } else {
+        header('Location: product.php');
+    }
+} elseif (isset($_POST['delete'])) {
     $id = $_POST['id'];
 
     $sql = "DELETE FROM `addons` WHERE `id`= '$id' ";
-	$result = mysqli_query($con, $sql);
-	
-	if($result == true)
-     {
-     header('Location: product.php');
-     }
-     else{
-     header('Location: product.php');
-     }
+    $result = mysqli_query($con, $sql);
+
+    if ($result == true) {
+        header('Location: product.php');
+    } else {
+        header('Location: product.php');
+    }
 }
 
 ?>

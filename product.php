@@ -101,6 +101,7 @@ if ($get_pagenation < 0) {
                             <th>Image</th>
                             <th>Name</th>
                             <th>Price</th>
+                            <th>Category</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
@@ -115,12 +116,17 @@ if ($get_pagenation < 0) {
 
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
+                                $sql1 = "SELECT * FROM `category` WHERE `id` = '$row[4]' ";
+                                $result1 = mysqli_query($con, $sql1);
+                                $row1 = mysqli_fetch_array($result1);
+                                $category = $row1[1];
                                 echo "
                                 <tr>
                                 <td>$row[0]</td>
                                 <td><img src='$row[2]' width='120px'></td>
                                 <td>$row[1]</td>
                                 <td>$row[3]</td>
+                                <td>$category</td>
                                 <td><a href='editproduct.php?id=$row[0]' class='btn btn-info'>Edit</td> 
                                 </tr>
                                 ";

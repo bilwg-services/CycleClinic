@@ -51,6 +51,23 @@ if (isset($_COOKIE['login']) != 1) {
                     <label>Product Cost</label>
                     <input type="number" name="price" class="form-control" placeholder="Product Cost" required />
                     <br>
+                    <label>Product Category</label>
+                    <select name="category" class="form-control">
+                        <?php
+                        
+                        $sql = "SELECT * FROM `category` ";
+                        $result = mysqli_query($con, $sql);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_array($result)) {
+                                echo "<option value='$row[0]'>$row[1]</option>";
+                            }
+                        }
+                        
+                        ?>
+                        
+                    </select>
+                    <br>
                     <label>Product Image</label>
                     <input type="file" name="image" class="form-control" placeholder="Product Image" accept="image/*" required />
                     <br>
@@ -73,6 +90,7 @@ if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $price = $_POST['price'];
+    $category = $_POST['category'];
 
     $file_name = $_FILES["image"]["name"];
     $file_tmp = $_FILES["image"]["tmp_name"];
@@ -84,7 +102,7 @@ if (isset($_POST['submit'])) {
 
     $location = $base_url . '/addons/' . $newFileName;
 
-    $sql = "INSERT INTO `addons`(`name`, `image`, `price`) VALUES ('$name','$location','$price')";
+    $sql = "INSERT INTO `addons`(`name`, `image`, `price`,`catid`) VALUES ('$name','$location','$price','$category')";
     $result = mysqli_query($con, $sql);
     
     if ($result == true) {
