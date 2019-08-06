@@ -46,6 +46,12 @@ function SideBar()
             </a>
         </div>
         <div id='element'>
+            <a href='worker.php'>
+                <i class='fa fa-user-circle-o'></i>
+                <span id='name'>Workers</span>
+            </a>
+        </div>
+        <div id='element'>
             <a href='product.php'>
             <i class='fa fa-product-hunt'></i>
                 <span id='name'>Products</span>
