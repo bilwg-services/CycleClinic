@@ -10,7 +10,7 @@
 	$result = mysqli_query($con, $sql);
 	
 	if($result == true){
-        header('Location: neworder.php?id='.$id);
+       header('Location: neworder.php?id='.$id);
     }
 }
  ?>
