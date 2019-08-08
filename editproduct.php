@@ -22,7 +22,7 @@ if (isset($_GET['id']))
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Admin Panel - Cycle Clinic
+        Admin Panel - My Cycle Clinic
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -34,7 +34,7 @@ if (isset($_GET['id']))
     <link href="assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="">
+<body onload="startTime()" class="">
     <div class="wrapper ">
         <!-- Sidebar -->
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
@@ -45,7 +45,7 @@ if (isset($_GET['id']))
          -->
       <div class="logo">
         <a href="index.php" class="simple-text logo-normal">
-          Cycle Clinic
+         My Cycle Clinic
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -71,19 +71,14 @@ if (isset($_GET['id']))
           <li class="nav-item ">
             <a class="nav-link" href="./worker.php">
               <i class="material-icons">library_books</i>
-              <p>Worker List</p>
+              <p>Pickup Person List</p>
             </a>
           </li>
+         
           <li class="nav-item active">
             <a class="nav-link" href="./product.php">
               <i class="material-icons">build</i>
               <p>Products</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./category.php">
-              <i class="material-icons">chrome_reader_mode</i>
-              <p>Categories</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -111,7 +106,7 @@ if (isset($_GET['id']))
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand"></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -122,7 +117,9 @@ if (isset($_GET['id']))
           <div class="collapse navbar-collapse justify-content-end">
 
             <ul class="navbar-nav">
-
+            <li class="nav-item dropdown">
+            <?php echo date("l jS \of F Y ");  ?><span id="txt"></span>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
@@ -510,6 +507,23 @@ if (isset($_GET['id']))
             });
         });
     </script>
+      <script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
 </body>
 
 </html>

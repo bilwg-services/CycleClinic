@@ -65,7 +65,7 @@ $Corders = $RS7[0];
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-        Admin Panel - Cycle Clinic
+        Admin Panel - My Cycle Clinic
     </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -77,7 +77,7 @@ $Corders = $RS7[0];
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="">
+<body  onload="startTime()" class="">
   <div class="wrapper ">
     <!-- Sidebar -->
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
@@ -88,7 +88,7 @@ $Corders = $RS7[0];
          -->
       <div class="logo">
         <a href="index.php" class="simple-text logo-normal">
-          Cycle Clinic
+         My Cycle Clinic
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -114,19 +114,13 @@ $Corders = $RS7[0];
           <li class="nav-item ">
             <a class="nav-link" href="./worker.php">
               <i class="material-icons">library_books</i>
-              <p>Worker List</p>
+              <p>Pickup Person List</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./product.php">
               <i class="material-icons">build</i>
               <p>Products</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./category.php">
-              <i class="material-icons">chrome_reader_mode</i>
-              <p>Categories</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -154,7 +148,7 @@ $Corders = $RS7[0];
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand"></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -165,7 +159,10 @@ $Corders = $RS7[0];
           <div class="collapse navbar-collapse justify-content-end">
 
             <ul class="navbar-nav">
-
+             
+              <li class="nav-item dropdown">
+              <?php echo date("l jS \of F Y ");  ?><span id="txt"></span>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
@@ -281,14 +278,14 @@ $Corders = $RS7[0];
                     <center>
                       <a href="job.php">
                         <button class="btn btn-lg" style="background: #fff; color: #000;">
-                          <?php echo $Tworker; ?> Workers
+                          <?php echo $Tworker; ?> Pickup Person
                         </button>
                       </a>
                     </center>
                   </div>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Total Workers</h4>
+                  <h4 class="card-title">Total Pickup Persons</h4>
 
                 </div>
                 <div class="card-footer">
@@ -394,8 +391,8 @@ $Corders = $RS7[0];
                       <div class="col-lg-6 col-md-12">
                         <div class="card">
                           <div class="card-header card-header-warning">
-                            <h4 class="card-title">Worker Stats</h4>
-                            <p class="card-category">All Worker Data</p>
+                            <h4 class="card-title">Pickup Person Stats</h4>
+                            <p class="card-category">All Pickup Person Data</p>
                           </div>
                           <div class="card-body table-responsive">
                             <table class="table table-hover">
@@ -724,6 +721,23 @@ $Corders = $RS7[0];
               window.location.href = "logout.php";
             }
           </script>
+            <script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
 </body>
 
 </html>

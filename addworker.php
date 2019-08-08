@@ -23,7 +23,7 @@ else
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-        Admin Panel - Cycle Clinic
+        Admin Panel - My Cycle Clinic
     </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -35,7 +35,7 @@ else
   <link href="assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="">
+<body onload="startTime()" class="">
   <div class="wrapper ">
      <!-- Sidebar -->
      <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
@@ -46,7 +46,7 @@ else
          -->
       <div class="logo">
         <a href="index.php" class="simple-text logo-normal">
-          Cycle Clinic
+         My Cycle Clinic
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -72,7 +72,7 @@ else
           <li class="nav-item active">
             <a class="nav-link" href="./worker.php">
               <i class="material-icons">library_books</i>
-              <p>Worker List</p>
+              <p>Pickup Person List</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -81,12 +81,7 @@ else
               <p>Products</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./category.php">
-              <i class="material-icons">chrome_reader_mode</i>
-              <p>Categories</p>
-            </a>
-          </li>
+          
           <li class="nav-item ">
             <a class="nav-link" href="./notification.php">
               <i class="material-icons">notifications</i>
@@ -112,7 +107,7 @@ else
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" ></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -123,7 +118,9 @@ else
           <div class="collapse navbar-collapse justify-content-end">
 
             <ul class="navbar-nav">
-
+            <li class="nav-item dropdown">
+            <?php echo date("l jS \of F Y ");  ?><span id="txt"></span>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
@@ -160,8 +157,8 @@ else
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Worker Table</h4>
-                  <p class="card-category">Add a New Worker</p>
+                  <h4 class="card-title ">Pickup Person Table</h4>
+                  <p class="card-category">Add a New Pickup Person</p>
                  </div>
                 <div class="card-body">
                   
@@ -173,23 +170,23 @@ else
                 <br>
                 <br>
                 <form action="addworker.php" method="POST" enctype="multipart/form-data">
-                    <label>Worker Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Worker Name" required />
+                    <label>Pickup Person Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Pickup Person Name" required />
                     <br>
-                    <label>Worker Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Worker Email" required />
+                    <label>Pickup Person Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Pickup Person Email" required />
                     <br>
-                    <label>Worker Password</label>
-                    <input type="password" name="pass" class="form-control" placeholder="Worker Password" required />
+                    <label>Pickup Person Password</label>
+                    <input type="password" name="pass" class="form-control" placeholder="Pickup Person Password" required />
                     <br>
-                    <label>Worker Phone</label>
-                    <input type="number" name="phone" class="form-control" placeholder="Worker Phone Number" required />
+                    <label>Pickup Person Phone</label>
+                    <input type="number" name="phone" class="form-control" placeholder="Pickup Person Phone Number" required />
                     <br>
-                    <label>Worker City</label>
-                    <input type="text" name="city" class="form-control" placeholder="Worker City" required />
+                    <label>Pickup Person City</label>
+                    <input type="text" name="city" class="form-control" placeholder="Pickup Person City" required />
                     <br>
-                    <label>Worker Image</label>
-                    <input type="file" name="image" class="form-control" placeholder="Product Image" accept="image/*" required />
+                    <label>Pickup Person Image</label>
+                    <input type="file" name="image" class="form-control" placeholder="Pickup Person Image" accept="image/*" required />
                     <br>
 
 
