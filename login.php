@@ -23,7 +23,7 @@
     <div class="container">
              <div class="row">
                 <div class="col-md-4">
-                    <img src="img/logo.png" height="80" />
+                    <img src="img/logo.png" height="120" />
                 </div>
                 <div class="col-md-8"> 
                     <center>   

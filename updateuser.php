@@ -45,7 +45,7 @@ if (isset($_GET['id']))
          -->
       <div class="logo">
         <a href="index.php" class="simple-text logo-normal">
-        My  Cycle Clinic
+        <img src="img/logo.png" height="70" /> My  Cycle Clinic
         </a>
       </div>
       <div class="sidebar-wrapper">

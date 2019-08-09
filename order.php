@@ -49,7 +49,7 @@ if ($get_pagenation < 0) {
          -->
       <div class="logo">
         <a href="index.php" class="simple-text logo-normal">
-         My Cycle Clinic
+        <img src="img/logo.png" height="70" />  My Cycle Clinic
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -242,11 +242,11 @@ if ($get_pagenation < 0) {
                                                         $scratches = ($row[8] == 1) ? "Yes" : "No";
                                                         $insurence = ($row[11] == 1) ? "Yes" : "No";
                                                         $newbike = ($row[12] == 1) ? "Yes" : "No";
-                                                        if ($row[10] == 5) {
+                                                        if ($row[11] == 5) {
                                                             $status = "<a href='neworder.php?id=$row[0]' style='color: #0f0;'>Completed</a>";
-                                                        } elseif ($row[10] >= 2 && $row[10] <= 4) {
+                                                        } elseif ($row[11] >= 2 && $row[10] <= 4) {
                                                             $status = "<a href='neworder.php?id=$row[0]' style='color: #f00;'>Pending</a>";
-                                                        } elseif ($row[10] == 1) {
+                                                        } elseif ($row[11] == 1) {
                                                             $status = "<a href='neworder.php?id=$row[0]' style='color: #f00;'>Approved</a>";
                                                         } else {
                                                             $status = "<a style='color: #00f;' href='neworder.php?id=$row[0]'>New Order</a>";
